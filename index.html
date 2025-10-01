@@ -8,16 +8,9 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc, #ff6a00);
-      background-size: 300% 300%;
-      animation: gradientShift 12s ease infinite;
+      background: linear-gradient(135deg, #8e44ad, #9b59b6);
+      min-height: 100vh;
       color: #222;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     /* Header and Navigation */
@@ -47,6 +40,135 @@
       color: #444;
       font-weight: 400;
       margin-top: 5px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: #444;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4b4b;
+    }
+
+    .search-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .search-title {
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 30px;
+      font-weight: 600;
+    }
+
+    .search-title span {
+      color: #ffeb3b;
+    }
+
+    .search-bar {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 15px 30px;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .search-bar button {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: #666;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .category-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+    }
+
+    .category-button {
+      padding: 15px 30px;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .category-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .karnataka { background: #4285f4; }
+    .central { background: #ff9800; }
+    .tenth { background: #e91e63; }
+    .railway { background: #009688; }
+    .bank { background: #9c27b0; }
+    .twelfth { background: #f4511e; }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .social-button {
+      padding: 12px 30px;
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+    }
+
+    .social-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .telegram {
+      background: #0088cc;
+    }
+
+    .whatsapp {
+      background: #25d366;
     }
 
     nav ul {
@@ -216,22 +338,46 @@
   </style>
 </head>
 <body>
-  <header>
+    <header>
     <div class="logo">
       FREI
       <span>Future Ready Education Institute</span>
     </div>
     <nav>
       <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="#">Karnataka State Jobs</a></li>
-        <li><a href="#">Central Jobs</a></li>
-        <li><a href="#">Other Jobs</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
     </nav>
   </header>
+
+  <div class="search-section">
+    <h1 class="search-title">Search <span>Karnataka</span> Jobs</h1>
+    
+    <div class="search-bar">
+      <input type="text" placeholder="Search here..">
+      <button>🔍</button>
+    </div>
+
+    <div class="category-buttons">
+      <a href="#" class="category-button karnataka">Karnataka Jobs</a>
+      <a href="#" class="category-button central">Central Jobs</a>
+      <a href="#" class="category-button tenth">10th Pass Jobs</a>
+      <a href="#" class="category-button railway">Railway Jobs</a>
+      <a href="#" class="category-button bank">Bank Jobs</a>
+      <a href="#" class="category-button twelfth">12th Pass Jobs</a>
+    </div>
+
+    <div class="social-buttons">
+      <a href="#" class="social-button telegram">
+        <span>📱</span> Telegram Channel
+      </a>
+      <a href="#" class="social-button whatsapp">
+        <span>📱</span> WhatsApp Channel
+      </a>
+    </div>
+  </div>
 
   <div class="container">
     <div class="job-grid">

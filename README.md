@@ -1,4 +1,15 @@
-# Job Board Static Website
+# FREI Jobs Portal
+
+A modern, responsive job board showcasing government and private sector jobs in Karnataka. Built for FREI (Future Ready Education Institute) with Kannada language support.
+
+## Features
+
+- 🔍 **Smart Search**: Quick job search functionality
+- 🏷️ **Categories**: Easy filtering by job type (Karnataka Jobs, Central Jobs, etc.)
+- 📱 **Responsive Design**: Works seamlessly on all devices
+- 🗺️ **Kannada Support**: Full local language implementation
+- 📑 **Pagination**: Easy browsing through job listings (8 per page)
+- 🔗 **Social Integration**: Telegram and WhatsApp channels
 
 ## Quick Start
 
@@ -24,19 +35,51 @@
    Install "Live Server" extension
    Right click on index.html -> "Open with Live Server"
 
-## File Structure
+## Project Structure
 ```
 job-post/
-├── index.html     # Main job listing page
-├── admin.html     # Admin interface
-├── assets/        # CSS and JavaScript
-├── jobs.json      # Job data
-└── README.md      # This file
+├── index.html           # Main landing page with job grid
+├── contact.html         # Contact information
+├── jobs.json           # Job listings data
+├── job/                # Individual job detail pages
+│   ├── job1.html      # Head Constable position
+│   ├── job2.html      # Indian Bank Service
+│   └── ... (jobs 3-16)
+└── assets/
+    ├── style.css      # Main stylesheet
+    ├── app.js         # JavaScript functionality
+    └── images/        # Job images
 ```
 
-## Testing
-1. Open index.html through the server (not directly)
-2. Use admin.html to add test jobs
+## Recent Updates
+
+1. Added Kannada language support for all job pages
+2. Implemented 8-jobs-per-page pagination system
+3. Created 16 detailed job listing pages
+4. Added search functionality and category filtering
+5. Integrated social media buttons (Telegram/WhatsApp)
+6. Fixed file paths and navigation structure
+
+## Updating Jobs
+
+To add or update job listings:
+
+1. Create a new job detail page in `/job` directory
+2. Add entry to `jobs.json`
+3. Update images in `assets/images/`
+4. Test pagination and links
+
+For more detailed documentation, see [documentation.md](documentation.md).
+
+## Contact
+
+FREI - Future Ready Education Institute  
+Website: [Your website]  
+Email: [Your email]
+
+## License
+
+This project is licensed under the MIT License.
 3. Search and filter should work in index.html
 
 ## Common Issues
