@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FREI - Future Ready Education Institute</title>
+    <style>
+        /* Existing styles remain the same */
+
+        /* Updated Pagination Styles */
+        .pagination-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pagination button {
+            padding: 12px 24px;
+            border: none;
+            background: #fff;
+            color: #444;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #ff4b4b;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .pagination button:disabled {
+            background: #ddd;
+            cursor: not-allowed;
+            color: #999;
+        }
+
+        .page-info {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 5px;
+        }
+
+        .page-numbers button {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-numbers button.active {
+            background: #ff4b4b;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add this just before the closing body tag -->
+    <div class="pagination-container">
+        <div class="pagination">
+            <button id="prevPage" onclick="changePage(-1)">← Previous</button>
+            <div class="page-info">
+                Page <span id="currentPage">1</span> of <span id="totalPages">1</span>
+            </div>
+            <button id="nextPage" onclick="changePage(1)">Next →</button>
+        </div>
+        <div class="page-numbers" id="pageNumbers"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const jobCards = document.querySelectorAll('.job-card');
+            const itemsPerPage = 8;
+            let currentPage = 1;
+            const totalItems = jobCards.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            function createPageNumbers() {
+                const pageNumbersContainer = document.getElementById('pageNumbers');
+                pageNumbersContainer.innerHTML = '';
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i;
+                    button.onclick = () => goToPage(i);
+                    if (i === currentPage) {
+                        button.classList.add('active');
+                    }
+                    pageNumbersContainer.appendChild(button);
+                }
+            }
+
+            function updatePagination() {
+                document.getElementById('currentPage').textContent = currentPage;
+                document.getElementById('totalPages').textContent = totalPages;
+                document.getElementById('prevPage').disabled = currentPage === 1;
+                document.getElementById('nextPage').disabled = currentPage === totalPages;
+                
+                // Update page number buttons
+                const pageButtons = document.querySelectorAll('.page-numbers button');
+                pageButtons.forEach((button, index) => {
+                    button.classList.toggle('active', index + 1 === currentPage);
+                });
+            }
+
+            function showPage(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+
+                jobCards.forEach((card, index) => {
+                    if (index >= start && index < end) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            function changePage(delta) {
+                goToPage(currentPage + delta);
+            }
+
+            function goToPage(pageNumber) {
+                if (pageNumber >= 1 && pageNumber <= totalPages) {
+                    currentPage = pageNumber;
+                    showPage(currentPage);
+                    updatePagination();
+                    // Smooth scroll to top of job grid
+                    document.querySelector('.job-grid').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+
+            // Initialize pagination
+            createPageNumbers();
+            updatePagination();
+            showPage(1);
+
+            // Make functions available globally
+            window.changePage = changePage;
+            window.goToPage = goToPage;
+        });
+    </script>
+</body>
+</html>

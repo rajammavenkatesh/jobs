@@ -1,0 +1,101 @@
+[
+  {
+    "id": "2025-section-controller",
+    "title": {
+      "kn": "ಸೆಕ್ಷನ್ ಕಂಟ್ರೋಲರ್ ನೇಮಕಾತಿ 2025",
+      "en": "Section Controller Recruitment 2025"
+    },
+    "position": {
+      "kn": "ಸೆಕ್ಷನ್ ಕಂಟ್ರೋಲರ್",
+      "en": "Section Controller"
+    },
+    "location": {
+      "kn": "ಭಾರತದೆಲ್ಲೆಡೆ",
+      "en": "All over India"
+    },
+    "totalPosts": 368,
+    "qualification": {
+      "kn": "ಮಾನ್ಯತೆ ಪಡೆದ ವಿದ್ಯಾಸಂಸ್ಥೆಯಿಂದ ಪದವಿ (Degree) ವಿದ್ಯಾರ್ಹತೆ ಇರಬೇಕು",
+      "en": "Must have a degree from a recognized institution"
+    },
+    "ageLimit": {
+      "min": 20,
+      "max": 33,
+      "asOfDate": "2026-01-01",
+      "relaxation": {
+        "SC_ST": 5,
+        "OBC": 3,
+        "PWD": 10
+      }
+    },
+    "salary": {
+      "amount": 35400,
+      "currency": "₹",
+      "frequency": "monthly"
+    },
+    "selectionProcess": {
+      "kn": [
+        "ಸಿಂಗಲ್ ಸ್ಟೇಜ್ ಕಂಪ್ಯೂಟರ್ ಬೇಸ್ಡ್ ಟೆಸ್ಟ್ (CBT)",
+        "ಕಂಪ್ಯೂಟರ್ ಬೇಸ್ಡ್ ಅಪ್ಟಿಟ್ಯೂಡ್ ಟೆಸ್ಟ್ (CBAT)",
+        "ದಾಖಲೆಗಳ ಪರಿಶೀಲನೆ",
+        "ವೈದ್ಯಕೀಯ ಪರೀಕ್ಷೆ"
+      ]
+    },
+    "applicationFee": {
+      "reserved": 250,
+      "general": 500,
+      "paymentMethods": ["Debit Card", "Credit Card", "UPI"]
+    },
+    "importantDates": {
+      "start": "2025-09-15",
+      "end": "2025-10-14",
+      "feePaymentEnd": "2025-10-16"
+    },
+    "posted_by": "admin",
+    "posted_on": "2025-09-28T22:00:00",
+    "lang": "kn"
+  },
+  {
+    "id": 2,
+    "title": "Software Developer",
+    "desc": "Looking for a skilled JavaScript developer with experience in modern web technologies. Remote work available.",
+    "posted_by": "admin",
+    "posted_on": "2025-09-27T10:00:00",
+    "tags": ["IT", "JavaScript", "Remote"],
+    "salary": "60,000 - 1,20,000"
+  },
+  {
+    "id": 1,
+    "title": "Software Engineer",
+    "company": "TechCorp",
+    "location": "Bangalore",
+    "category": "private",
+    "description": "We are looking for a software engineer to join our team...",
+    "requirements": "- 3+ years experience\n- B.Tech or equivalent\n- Strong programming skills",
+    "salary": "15-20 LPA",
+    "posted_on": "2024-02-10T10:00:00",
+    "valid_until": "2024-03-10T10:00:00"
+  },
+  {
+    "id": "1",
+    "title": "Software Developer",
+    "company": "Tech Solutions",
+    "location": "Bangalore",
+    "category": "private",
+    "description": "Looking for a JavaScript developer...",
+    "requirements": "3+ years experience in web development",
+    "salary": "10-15 LPA",
+    "posted_on": "2024-02-10"
+  },
+  {
+    "id": "2",
+    "title": "Bank Clerk",
+    "company": "State Bank",
+    "location": "Mumbai",
+    "category": "government",
+    "description": "Opening for bank clerk position...",
+    "requirements": "Bachelor's degree, Age limit 21-28 years",
+    "salary": "25,000 - 35,000",
+    "posted_on": "2024-02-09"
+  }
+]
