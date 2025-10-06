@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <title>FREI - Future Ready Education Institute</title>
   <style>
     body {
@@ -45,10 +46,25 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      align-items: center;
+      gap: 25px;
       margin: 0;
       padding: 0;
     }
+
+    nav a {
+      color: #444;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4b4b;
+    }
+
+    /* Removed top social buttons */
 
     nav a {
       color: #444;
@@ -66,6 +82,8 @@
       text-align: center;
       padding: 40px 20px;
     }
+
+    /* Social styles moved to external CSS file */
 
     .search-title {
       font-size: 3rem;
@@ -111,9 +129,48 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       max-width: 1200px;
+      margin: 0 auto 15px;
+      padding: 0 20px;
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+      max-width: 1200px;
       margin: 0 auto 25px;
       padding: 0 20px;
     }
+
+    .social-button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .social-button:hover {
+      transform: translateY(-3px);
+    }
+
+    .social-button i {
+      font-size: 1.1rem;
+    }
+
+    .social-button.telegram { background: #0088cc; }
+    .social-button.whatsapp { background: #25D366; }
+    .social-button.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+    .social-button.youtube { background: #FF0000; }
+    .social-button.facebook { background: #1877F2; }
+    .social-button.all { background: #333; }
 
     .category-button {
       padding: 15px 30px;
@@ -140,73 +197,41 @@
     .bank { background: #9c27b0; }
     .twelfth { background: #f4511e; }
 
-    .social-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin: 10px 40px;
-      width: calc(100% - 80px);
+    .top-social-strip {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .social-button {
-      padding: 15px 20px;
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 25px;
       border-radius: 50px;
       color: white;
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      font-size: 1.1rem;
       font-weight: 500;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      text-align: center;
-      min-width: 180px;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+      min-width: 200px;
+      justify-content: center;
+      background-color: rgba(0,0,0,0.2);
     }
 
-    .social-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-    }
-
-    .social-button i {
-      font-size: 1.2rem;
-    }
-
-    .social-button.telegram {
-      background: linear-gradient(45deg, #0088cc, #0099ff);
-    }
-
-    .social-button.whatsapp {
-      background: linear-gradient(45deg, #25d366, #128C7E);
-    }
-
-    .social-button.instagram {
-      background: linear-gradient(45deg, #833AB4, #FD1D1D, #F56040);
-    }
-
-    .social-button.youtube {
-      background: linear-gradient(45deg, #FF0000, #CC0000);
-    }
-
-    .social-button.facebook {
-      background: linear-gradient(45deg, #3b5998, #4c70ba);
-    }
-
-    .social-section {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 15px 0;
-      margin: -10px 0 15px;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .social-button:hover {
+    .social-link:hover {
       transform: translateY(-2px);
     }
+
+    .social-link.telegram { background-color: #0088cc; }
+    .social-link.whatsapp { background-color: #25D366; }
+    .social-link.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+    .social-link.youtube { background-color: #FF0000; }
+    .social-link.facebook { background-color: #1877F2; }
 
     .telegram {
       background: #0088cc;
@@ -383,24 +408,26 @@
   </style>
 </head>
 <body>
-    <header>
+      <header>
     <div class="logo">
       FREI
       <span>Future Ready Education Institute</span>
     </div>
-    <nav>
+      <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="#">About Us</a></li>
       </ul>
     </nav>
   </header>
 
+
+
   <div class="search-section">
     <h1 class="search-title">Search <span>Karnataka</span> Jobs</h1>
     
-    <div class="search-bar">
+      <div class="search-bar">
       <input type="text" placeholder="Search here..">
       <button>🔍</button>
     </div>
@@ -413,26 +440,27 @@
       <a href="#" class="category-button bank">Bank Jobs</a>
       <a href="#" class="category-button twelfth">12th Pass Jobs</a>
     </div>
-  </div>
 
-  <div class="social-section">
-    <div class="social-buttons">
-      <a href="#" class="social-button telegram">
-        <i class="fab fa-telegram"></i> Telegram Channel
-      </a>
-      <a href="#" class="social-button whatsapp">
-        <i class="fab fa-whatsapp"></i> WhatsApp Group
-      </a>
-      <a href="#" class="social-button instagram">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="#" class="social-button youtube">
-        <i class="fab fa-youtube"></i> YouTube
-      </a>
-      <a href="#" class="social-button facebook">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
+    <div class="social-section">
+      <div class="social-grid">
+        <a href="https://t.me/FREI2025" target="_blank" class="social-button telegram">
+          <i class="fab fa-telegram"></i> Join Our Telegram Channel
+        </a>
+        <a href="https://whatsapp.com/channel/0029VbB6o4J2Jl8LWOhf9K1y" target="_blank" class="social-button whatsapp">
+          <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+        </a>
+        <a href="https://www.instagram.com/edubytes.tnp/" target="_blank" class="social-button instagram">
+          <i class="fab fa-instagram"></i> Follow on Instagram
+        </a>
+        <a href="https://www.youtube.com/@FutureReadyEducationInstitute" target="_blank" class="social-button youtube">
+          <i class="fab fa-youtube"></i> Subscribe on YouTube
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61569502511921" target="_blank" class="social-button facebook">
+          <i class="fab fa-facebook"></i> Like us on Facebook
+        </a>
+      </div>
     </div>
+  </div>
   </div>
 
   <div class="container">
@@ -563,16 +591,89 @@
       <div class="page-numbers" id="pageNumbers"></div>
     </div>
 
-    <footer>© 2025 FREI - Future Ready Education Institute</footer>
+        <footer class="modern-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3><i class="fas fa-graduation-cap"></i> Karnataka Job Info</h3>
+          <p>Karnatakajobinfo.com provides information regarding various Karnataka Jobs, Central Government Jobs and more.</p>
+        </div>
+
+        <div class="footer-section">
+          <h3><i class="fas fa-th-list"></i> Quick Links</h3>
+          <div class="footer-links">
+            <div class="links-column">
+              <a href="/"><i class="fas fa-angle-right"></i> Home</a>
+              <a href="/karnataka-state-jobs"><i class="fas fa-angle-right"></i> Karnataka State Jobs</a>
+              <a href="/privacy-policy"><i class="fas fa-angle-right"></i> Privacy Policy</a>
+              <a href="/contact"><i class="fas fa-angle-right"></i> Contact Us</a>
+              <a href="/about"><i class="fas fa-angle-right"></i> About Us</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+          <div class="footer-social">
+            <a href="https://t.me/FREI2025" target="_blank" class="social-icon telegram">
+              <i class="fab fa-telegram"></i>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VbB6o4J2Jl8LWOhf9K1y" target="_blank" class="social-icon whatsapp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.instagram.com/edubytes.tnp/" target="_blank" class="social-icon instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@FutureReadyEducationInstitute" target="_blank" class="social-icon youtube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61569502511921" target="_blank" class="social-icon facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+          <div class="social-links">
+            <a href="https://t.me/FREI2025" target="_blank" class="social-text">Join Telegram Channel</a>
+            <a href="https://whatsapp.com/channel/0029VbB6o4J2Jl8LWOhf9K1y" target="_blank" class="social-text">Join WhatsApp Group</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-info">
+          <p>© 2025 Karnataka Job Info - All Rights Reserved</p>
+          <div class="footer-links-bottom">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms">Terms of Use</a>
+            <a href="/disclaimer">Disclaimer</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const jobCards = document.querySelectorAll('.job-card');
+      const jobCards = Array.from(document.querySelectorAll('.job-card'));
+      const searchInput = document.querySelector('.search-bar input');
       const itemsPerPage = 8;
       let currentPage = 1;
-      const totalItems = jobCards.length;
-      const totalPages = Math.ceil(totalItems / itemsPerPage);
+      let filteredCards = [...jobCards];
+      let totalPages = Math.ceil(jobCards.length / itemsPerPage);
+
+      // Search functionality
+      searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        filteredCards = jobCards.filter(card => {
+          const title = card.querySelector('.job-title').textContent.toLowerCase();
+          const desc = card.querySelector('.job-desc').textContent.toLowerCase();
+          return title.includes(searchTerm) || desc.includes(searchTerm);
+        });
+        totalPages = Math.ceil(filteredCards.length / itemsPerPage);
+        currentPage = 1;
+        updatePagination();
+        showPage(1);
+      });
 
       function createPageNumbers() {
         const pageNumbersContainer = document.getElementById('pageNumbers');
@@ -606,12 +707,12 @@
         const start = (page - 1) * itemsPerPage;
         const end = start + itemsPerPage;
 
-        jobCards.forEach((card, index) => {
-          if (index >= start && index < end) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+        // Hide all cards first
+        jobCards.forEach(card => card.style.display = 'none');
+        
+        // Show only filtered cards for current page
+        filteredCards.slice(start, end).forEach(card => {
+          card.style.display = '';
         });
       }
 
