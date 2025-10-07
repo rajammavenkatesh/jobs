@@ -133,44 +133,7 @@
       padding: 0 20px;
     }
 
-    .social-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 15px;
-      max-width: 1200px;
-      margin: 0 auto 25px;
-      padding: 0 20px;
-    }
-
-    .social-button {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .social-button:hover {
-      transform: translateY(-3px);
-    }
-
-    .social-button i {
-      font-size: 1.1rem;
-    }
-
-    .social-button.telegram { background: #0088cc; }
-    .social-button.whatsapp { background: #25D366; }
-    .social-button.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
-    .social-button.youtube { background: #FF0000; }
-    .social-button.facebook { background: #1877F2; }
-    .social-button.all { background: #333; }
+    /* social styles moved to external stylesheet (assets/style.css) */
 
     .category-button {
       padding: 15px 30px;
@@ -406,6 +369,7 @@
       text-align: center;
     }
   </style>
+  <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
       <header>
@@ -416,7 +380,7 @@
       <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+  <li><a href="about-us.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -441,26 +405,27 @@
       <a href="#" class="category-button twelfth">12th Pass Jobs</a>
     </div>
 
-    <div class="social-section">
-      <div class="social-grid">
-        <a href="https://t.me/FREI2025" target="_blank" class="social-button telegram">
-          <i class="fab fa-telegram"></i> Join Our Telegram Channel
-        </a>
-        <a href="https://whatsapp.com/channel/0029VbB6o4J2Jl8LWOhf9K1y" target="_blank" class="social-button whatsapp">
-          <i class="fab fa-whatsapp"></i> Join WhatsApp Group
-        </a>
-        <a href="https://www.instagram.com/edubytes.tnp/" target="_blank" class="social-button instagram">
-          <i class="fab fa-instagram"></i> Follow on Instagram
-        </a>
-        <a href="https://www.youtube.com/@FutureReadyEducationInstitute" target="_blank" class="social-button youtube">
-          <i class="fab fa-youtube"></i> Subscribe on YouTube
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61569502511921" target="_blank" class="social-button facebook">
-          <i class="fab fa-facebook"></i> Like us on Facebook
-        </a>
-      </div>
     </div>
-  </div>
+
+  <!-- Full-bleed social bar (edge-to-edge) -->
+  <div class="social-section">
+    <div class="social-grid">
+      <a href="https://t.me/FREI2025" target="_blank" class="social-button telegram">
+        <span><i class="fab fa-telegram"></i> Join Our Telegram Channel</span>
+      </a>
+      <a href="https://whatsapp.com/channel/0029VbB6o4J2Jl8LWOhf9K1y" target="_blank" class="social-button whatsapp">
+        <span><i class="fab fa-whatsapp"></i> Join WhatsApp Group</span>
+      </a>
+      <a href="https://www.instagram.com/edubytes.tnp/" target="_blank" class="social-button instagram">
+        <span><i class="fab fa-instagram"></i> Follow on Instagram</span>
+      </a>
+      <a href="https://www.youtube.com/@FutureReadyEducationInstitute" target="_blank" class="social-button youtube">
+        <span><i class="fab fa-youtube"></i> Subscribe on YouTube</span>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61569502511921" target="_blank" class="social-button facebook">
+        <span><i class="fab fa-facebook"></i> Like us on Facebook</span>
+      </a>
+    </div>
   </div>
 
   <div class="container">
@@ -594,20 +559,18 @@
         <footer class="modern-footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3><i class="fas fa-graduation-cap"></i> Karnataka Job Info</h3>
-          <p>Karnatakajobinfo.com provides information regarding various Karnataka Jobs, Central Government Jobs and more.</p>
+    <h3><i class="fas fa-graduation-cap"></i> FREI Job Info</h3>
+          <p>jon.edubytes.org.in provides information regarding various Karnataka Jobs, Central Government Jobs and more.</p>
         </div>
 
         <div class="footer-section">
           <h3><i class="fas fa-th-list"></i> Quick Links</h3>
           <div class="footer-links">
             <div class="links-column">
-              <a href="/"><i class="fas fa-angle-right"></i> Home</a>
-              <a href="/karnataka-state-jobs"><i class="fas fa-angle-right"></i> Karnataka State Jobs</a>
-              <a href="/privacy-policy"><i class="fas fa-angle-right"></i> Privacy Policy</a>
-              <a href="/contact"><i class="fas fa-angle-right"></i> Contact Us</a>
-              <a href="/about"><i class="fas fa-angle-right"></i> About Us</a>
-            </div>
+                <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
+                <a href="contact.html"><i class="fas fa-angle-right"></i> Contact Us</a>
+                <a href="about-us.html"><i class="fas fa-angle-right"></i> About Us</a>
+              </div>
           </div>
         </div>
 
@@ -649,14 +612,11 @@
       </div>
     </footer>
 
-    <script>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const jobCards = Array.from(document.querySelectorAll('.job-card'));
-      const searchInput = document.querySelector('.search-bar input');
-      const itemsPerPage = 8;
+  const jobCards = Array.from(document.querySelectorAll('.job-card'));
+  const searchInput = document.querySelector('.search-bar input');
+  const itemsPerPage = 8; // 4 columns x 2 rows per page
       let currentPage = 1;
       let filteredCards = [...jobCards];
       let totalPages = Math.ceil(jobCards.length / itemsPerPage);
@@ -665,8 +625,11 @@
       searchInput.addEventListener('input', function(e) {
         const searchTerm = e.target.value.toLowerCase();
         filteredCards = jobCards.filter(card => {
-          const title = card.querySelector('.job-title').textContent.toLowerCase();
-          const desc = card.querySelector('.job-desc').textContent.toLowerCase();
+          // robust title/desc lookup: prefer .job-title/.job-desc, fall back to h3 and p
+          const titleEl = card.querySelector('.job-title') || card.querySelector('h3');
+          const descEl = card.querySelector('.job-desc') || card.querySelector('p');
+          const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+          const desc = descEl ? descEl.textContent.toLowerCase() : '';
           return title.includes(searchTerm) || desc.includes(searchTerm);
         });
         totalPages = Math.ceil(filteredCards.length / itemsPerPage);
