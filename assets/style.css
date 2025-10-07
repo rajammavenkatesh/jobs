@@ -60,16 +60,15 @@ body {
 }
 
 .social-grid {
-  /* Center the social buttons inside a max-width so they look like the screenshot (pill buttons) */
+  /* Left-aligned row: facebook will sit at the left edge while others follow */
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap; /* keep a single row */
-  gap: 14px; /* small gap between pills */
+  gap: 34px; /* increased gap between pills */
   width: 100%;
   margin: 0;
-  justify-content: center;
-  max-width: 1200px; /* align with .container width */
-  padding: 0 20px; /* small side padding so pills don't touch the viewport on very wide screens */
+  justify-content: flex-start; /* left align items */
+  padding: 0 12px; /* small side padding so pills don't touch viewport exactly */
   box-sizing: border-box;
 }
 
@@ -79,9 +78,9 @@ body {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto; /* size to content */
-  padding: 8px 20px; /* horizontal padding for pill look */
+  padding: 14px 30px; /* slightly more horizontal padding */
   height: 44px; /* shorter, screenshot-like */
-  border-radius: 24px; /* rounded pill */
+  border-radius: 22px; /* rounded pill */
   text-decoration: none;
   color: white;
   font-size: 0.95rem;
@@ -91,13 +90,17 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-.social-button > span { display:inline-flex; align-items:center; gap:10px; padding:0; width:auto; justify-content:center; }
+.social-button > span { display:inline-flex; align-items:center; gap:16px; padding:0; width:auto; justify-content:center; }
 
 /* On very small viewports allow horizontal scrolling so pills don't wrap and stay readable */
 @media (max-width: 480px) {
   .social-section { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .social-grid { min-width: 520px; } /* ensures pills remain on one horizontal line with scroll */
 }
+
+/* Make Facebook sit fully to the left visually and tighten spacing between others */
+.social-button.facebook { margin-left: 6px; /* small offset from viewport padding */ }
+.social-button:not(.facebook) { margin-left: 0; }
 
 .social-button i { font-size:1.1rem; }
 
